@@ -1,0 +1,16 @@
+---
+schemaVersion: '2.2'
+description: Installs the CSGO Server to Base.
+parameters: {}
+mainSteps:
+- action: aws:runShellScript
+  name: InstallCSGOSever
+  inputs:
+    runCommand:
+    - apt-get update -y
+    - apt-get install lib32gcc1 -y
+    - apt-get install lib32stdc++6 -y
+    - mkdir /Steam && cd /Steam
+    - wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+    - tar -xvzf steamcmd_linux.tar.gz
+    - /Steam/steamcmd.sh +login anonymous +force_install_dir /Steam/csgo-ds +app_update 740 +quit

@@ -1,0 +1,22 @@
+---
+schemaVersion: '2.2'
+description: Installs the Metamod and SourceMod.
+parameters: {}
+mainSteps:
+- action: aws:runShellScript
+  name: InstallCSGOSever
+  inputs:
+    runCommand:
+    - cd /Steam/csgo-ds/csgo
+    - wget https://mms.alliedmods.net/mmsdrop/1.10/mmsource-1.10.7-git966-linux.tar.gz
+    - tar -xvzf mmsource-1.10.7-git966-linux.tar.gz
+    - wget https://sm.alliedmods.net/smdrop/1.9/sourcemod-1.9.0-git6267-linux.tar.gz
+    - tar -xvzf sourcemod-1.9.0-git6267-linux.tar.gz
+    - rm addons/metamod.vdf
+    - touch addons/metamod.vdf
+    - sed -i "1i }" addons/metamod.vdf
+    - sed -i "1i     \"file\"  \"../csgo/addons/metamod/bin/server\"" addons/metamod.vdf
+    - sed -i "1i {" addons/metadmod.vdf
+    - sed -i "1i \"Plugin\"" addons/metadmod.vdf
+    - sed -i "47i           GameBin             |gameinfo_path|addons/metamod/bin" gameinfo.txt
+    - sed -i "50i           Game                |all_source_engine_paths|hl2" gameinfo.txtName

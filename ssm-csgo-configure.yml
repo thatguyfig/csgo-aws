@@ -1,0 +1,14 @@
+---
+schemaVersion: '2.2'
+description: Configures the CSGO with RCON password.
+parameters:
+  RCONPassword:
+    type: String
+    default: RCON-HERE
+    description: "(Required) The Remote Connection password for remote console access."    
+mainSteps:
+- action: aws:runShellScript
+  name: ConfigureCSGO
+  inputs:
+    runCommand:
+    - echo "rcon_password \"{{ RCONPassword }}\"" >> /Steam/csgo-ds/csgo/cfg/server.cfg    
