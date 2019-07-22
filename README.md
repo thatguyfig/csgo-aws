@@ -48,4 +48,21 @@ Once you've completed these steps, you may still want to do the following:
 - Add further mods to your server (new script TODO)
 - Customise the name and tags for your server (new script TODO)
 
+There's some really good information on this here - https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Dedicated_Servers
+
 To do this, you will need to SSH to your instance and configure it using the command-line.
+
+## Launching the Server!
+
+Once you've completed your config and have added all the mods you can dream of, run the server with the `launch-server.sh` script.
+
+Please modify the top of the script to suit your needs:
+```bash
+SERVERLOGINTOKEN="" # YOUR GSLT
+GAMETYPE="1" # 0 / 1
+GAMEMODE="" # 0 / 1 / 2 
+STARTING_MAP="de_dust2" # starting map
+MAX_PLAYERS=32
+```
+The combinations of gametype and gamemode are described here - https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Dedicated_Servers#Starting_the_Server
+

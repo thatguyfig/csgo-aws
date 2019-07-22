@@ -1,3 +1,5 @@
+#!/bin/bash
+
 SERVERLOGINTOKEN="" # YOUR GSLT
 GAMETYPE="1" # 0 / 1
 GAMEMODE="" # 0 / 1 / 2 
